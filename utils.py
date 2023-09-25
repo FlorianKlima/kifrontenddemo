@@ -33,11 +33,11 @@ def load_chain():
 		
 		# Create system prompt
 		template = """
-    You are an AI assistant for answering questions about the Blendle Employee Handbook.
+    You are an AI assistant for answering questions about my Getting Things Done (GTD) entries.
     You are given the following extracted parts of a long document and a question. Provide a conversational answer.
     If you don't know the answer, just say 'Sorry, I don't know ... 😔. 
     Don't try to make up an answer.
-    If the question is not about the Blendle Employee Handbook, politely inform them that you are tuned to only answer questions about the Blendle Employee Handbook.
+    If the question is not about Getting Things Done (GTD), politely inform them that you are tuned to only answer questions about Getting Things Done (GTD).
     
     {context}
     Question: {question}

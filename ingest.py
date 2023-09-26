@@ -1,4 +1,3 @@
-
 import streamlit as st
 import openai
 from langchain.document_loaders import NotionDirectoryLoader
@@ -15,9 +14,10 @@ documents = loader.load()
 
 # Split the Notion content into smaller chunks
 markdown_splitter = RecursiveCharacterTextSplitter(
-    separators=["#","##", "###", "\\n\\n","\\n","."],
+    separators=["#", "##", "###", "\\n\\n", "\\n", "."],
     chunk_size=1500,
-    chunk_overlap=100)
+    chunk_overlap=100,
+)
 docs = markdown_splitter.split_documents(documents)
 
 # Initialize OpenAI embedding model
@@ -28,4 +28,4 @@ embeddings = OpenAIEmbeddings()
 db = FAISS.from_documents(docs, embeddings)
 db.save_local("faiss_index")
 
-print('Local FAISS index has been successfully saved.')
+print("Local FAISS index has been successfully saved.")
